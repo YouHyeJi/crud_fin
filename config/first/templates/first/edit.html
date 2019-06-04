@@ -4,7 +4,7 @@
 <link href="{% static 'css/hi.css' %}" rel="stylesheet">
 <div class="container">
     <div class = "hi">
-        <form method='POST'>
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <table>
                 {{form.as_table}}

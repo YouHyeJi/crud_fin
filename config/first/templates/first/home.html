@@ -12,6 +12,17 @@
         <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{% url 'new' %}">글쓰기</a>
       </div>
     </div>
+  <div class="dropdown">
+  <button class="btn btn-primary float-right dropdown-toggle" type="button"
+   id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Hashtag 검색
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    {% for hashtag in hashtags.all %}
+    <a class="dropdown-item" href="{% url 'search' hashtag.id %}">{{ hashtag.name }}</a>
+    {% endfor %}
+  </div>
+</div>
   </header>
 
 <div class="container">

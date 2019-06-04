@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 import first.views
 
 urlpatterns = [
@@ -28,4 +30,6 @@ urlpatterns = [
     path('first/detail/<int:blog_id>/', first.views.detail, name='detail'),
     path('first/comment_edit/<int:blog_id>/<int:comment_id>/',first.views.comment_edit, name='comment_edit'),
     path('first/comment_remove/<int:blog_id>/<int:comment_id>/',first.views.comment_remove, name='comment_remove'),
-]
+    path('first/hashtag/', first.views.hashtagform, name='hashtag'),
+    path('first/<int:hashtag_id>/search/', first.views.search, name='search'),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
